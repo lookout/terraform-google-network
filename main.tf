@@ -33,6 +33,7 @@ module "vpc" {
 	Subnet configuration
  *****************************************/
 module "subnets" {
+  depends_on       = [module.vpc]
   source           = "./modules/subnets"
   project_id       = var.project_id
   network_name     = module.vpc.network_name
